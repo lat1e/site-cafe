@@ -113,78 +113,88 @@ body {
     border-left: 2px solid #7e487e;
 }
 
-.nav {
-    width: 100%;
-    padding: 5px;
-    letter-spacing: 1px;
-    font-size: large;
-    color: white;
-    background-image: url(./esset/bakground.jpg);
-}
-
 .main {
     width: 100%;
-    display: flex;
-    background-color: #dde2e6;
-}
-
-/*사이드*/
-.aside {
-    width: 200px;
-    padding: 50px 0px 0px 30px;
-    border-right: dashed;
-    background-image: url(./esset/bakground2.jpg);
-}
-
-.sidelist {margin-bottom: 25px;}
-
-.sidelist-title {margin-bottom: 10px; text-decoration: none;}
-
-.sidelist-list {
-    margin-left: 10px;
-    list-style-type: none;
-    color: #7e487e;
-}
-
-/*본문*/
-.article {
-    margin: 20px 20px 0px;
-    flex-grow: 1;
-}
-
-.post {
-    width: 570px;
-    margin: 10px 10px 15px;
-    padding: 10px 10px 25px;
-    display: flex;
-    border-bottom: 1px solid;
-}
-
-.post-pfp {
-    width: 50px;
-    height: 50px;
-    border-radius: 5%;
-    background-image: url(./esset/profile.jpg);
+    height: -webkit-fill-available;
+    background-image: url(./esset/bakground3.jpg);
     background-size: 100%;
+    text-align: center;
+    position: relative;
 }
 
-.post2 {
-    width: 490px;
-    margin: 0px 10px;
+/*로딩화면*/
+.loading-con {
+    position: absolute;
+    top: 230px;
+    left:0; right:0; margin-left:auto; margin-right:auto;
+    animation: loading 8.7s forwards;
 }
 
-.post3 {display: flex; margin-bottom: 10px;}
+@keyframes loading {to{visibility:hidden;}}
 
-.post-id {flex-grow: 1; margin-left: 5px; color: #7e487e;}
+.loading-text {
+    margin-bottom: 10px;
+    font-size: x-large;
+    color: white;
+}
 
-.post-date {color: #7e487e; font-size: small;}
+.loading-box {
+    display: inline-flex;
+    justify-content: center;
+    border: solid white;
+}
 
-.post-thum {
-    width: 480px;
-    height: 220px;
-    margin-top: 5px;
-    border-radius: 5%;
-    object-fit: cover;
+.loading {
+    width: 15px;
+    height: 25px;
+    margin: 3px 0px 3px 3px;
+    visibility: hidden;
+    background-color: white;
+}
+
+.loading:nth-child(1) {animation: loading1 3s 3;}
+.loading:nth-child(2) {animation: loading2 3s 3;}
+.loading:nth-child(3) {animation: loading3 3s 3;}
+.loading:nth-child(4) {animation: loading4 3s 3;}
+.loading:nth-child(5) {animation: loading5 3s 3;}
+.loading:nth-child(6) {animation: loading6 3s 3;}
+.loading:nth-child(7) {animation: loading7 3s 3;}
+.loading:nth-child(8) {margin-right: 3px; animation: loading8 3s 3;}
+
+@keyframes loading1 {0%,90%{visibility:hidden;}10%{visibility:visible;}}
+@keyframes loading2 {10%,90%{visibility:hidden;}20%{visibility:visible;}}
+@keyframes loading3 {20%,90%{visibility:hidden;}30%{visibility:visible;}}
+@keyframes loading4 {30%,90%{visibility:hidden;}40%{visibility:visible;}}
+@keyframes loading5 {40%,90%{visibility:hidden;}50%{visibility:visible;}}
+@keyframes loading6 {50%,90%{visibility:hidden;}60%{visibility:visible;}}
+@keyframes loading7 {60%,90%{visibility:hidden;}70%{visibility:visible;}}
+@keyframes loading8 {70%,90%{visibility:hidden;}80%{visibility:visible;}}
+
+
+/*메인화면*/
+
+.article {
+    position: absolute;
+    top: 230px;
+    left:0; right:0; margin-left:auto; margin-right:auto;
+    animation: mainloading 9.1s ;
+}
+
+@keyframes mainloading {
+    0%, 95% {opacity: 0%; pointer-events: none;}
+    to {opacity: 100%; pointer-events: auto;}
+}
+
+.title {
+    margin-bottom: 20px;
+    font-size: 50px;
+    color: white;
+    text-shadow: 5px 5px 3px #e3c2e9;}
+
+.newbut {
+    font-size: x-large;
+    color: #c9afe5;
+    text-shadow: 1px 1px 2px white;
 }
 
 /*푸터*/
