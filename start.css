@@ -136,12 +136,19 @@ body {
     margin-bottom: 10px;
     font-size: x-large;
     color: white;
+    text-shadow: -2px 0px #c9afe5, 0px 2px #c9afe5, 2px 0px #c9afe5, 0px -2px #c9afe5;
 }
 
 .loading-box {
     display: inline-flex;
     justify-content: center;
     border: solid white;
+    box-shadow: -2px 0px #c9afe5, 0px 2px #c9afe5, 2px 0px #c9afe5, 0px -2px #c9afe5;
+}
+
+.loading-box2 {
+    display: inline-flex;
+    border: solid #c9afe5;
 }
 
 .loading {
@@ -150,6 +157,7 @@ body {
     margin: 3px 0px 3px 3px;
     visibility: hidden;
     background-color: white;
+    box-shadow: -2px 0px #c9afe5, 0px 2px #c9afe5, 2px 0px #c9afe5, 0px -2px #c9afe5;
 }
 
 .loading:nth-child(1) {animation: loading1 3s 3;}
@@ -189,7 +197,7 @@ body {
     margin-bottom: 20px;
     font-size: 50px;
     color: white;
-    text-shadow: 5px 5px 3px #e3c2e9;}
+    text-shadow: 5px 5px 3px #e1a1da;}
 
 .newbut {
     font-size: x-large;
