@@ -3,19 +3,60 @@ const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
+let jump = false;
 
-let img1 = new Image();
-img1.src = 'peng0.png';
+class Images {
+    constructor(images, speed) {
+        this.images = []
+        for (let i = 0; i < images.length; i++) {
+            const img = new Image();
+            img.src = images[i];
+            this.images.push(img);
+        }
+        this.speed = speed;
+        this.count = 0;
+        this.current = 0;
+    }
+    getCurrent() {
+        return this.images[this.current];
+    }
+    getNext() {
+        this.current = (this.current + 1) % this.images.length;
+        return this.images[this.current];
+    }
+    getNextBySpeed() {
+        this.count++;
+        if (this.count > this.speed) {
+            this.count = 0;
+            return this.getNext();
+        }
+        return this.images[this.current];
+    }
+    reset() {
+        this.current = 0;
+        this.count = 0;
+    }
 
+}
+// oop 객체지향.
 const peng = {
     x : 10,
     y : 200,
     width : 72,
     height : 72,
+    images: {
+        stand: new Images(['peng0.png', 'peng1.png'], 10),
+        jump: new Images(['peng3.png'], 10),
+    },
     draw(){
-        ctx.drawImage(img1, this.x, this.y);
+        if (jump === true) {
+            ctx.drawImage(this.images.jump.getNextBySpeed(), this.x, this.y);
+        } else {
+            ctx.drawImage(this.images.stand.getNextBySpeed(), this.x, this.y);
+        }
     }
 }
+
 
 class Enemy {
     constructor() {
@@ -91,7 +132,6 @@ function crash(peng, enemy){
 }
 
 
-let jump = false;
 document.addEventListener('keydown', function(e){
     if (e.code === 'Space'){
         jump = true;
